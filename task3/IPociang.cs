@@ -5,17 +5,16 @@ namespace task3
 {
     public abstract class IPociang
     {
-        protected String type;
         protected ILokomotywa lokomotywa;
 
         private List<IWagon> osoboweWagony;
         private List<IWagon> towaroweWagony;
 
-        public IPociang(String type)
+        public IPociang()
         {
         }
 
-        public void setLokomotywa(ILokomotywa lokomotywa)
+        protected virtual void setLokomotywa(ILokomotywa lokomotywa)
         {
             this.lokomotywa = lokomotywa;
         }
@@ -25,7 +24,7 @@ namespace task3
             return this.lokomotywa;
         }
 
-        public void addWagon(IWagon wagon)
+        protected virtual void addWagon(IWagon wagon)
         {
             if (wagon.isTowarowy())
                 this.towaroweWagony.Add(wagon);
@@ -41,6 +40,19 @@ namespace task3
             res.AddRange(this.towaroweWagony);
 
             return res;
+        }
+
+        public String prezentujSie()
+        {
+            String result = "";
+
+            result += this.lokomotywa.prezentujSie();
+
+            foreach (IWagon wagon in this.getWagony()) {
+                result += ";" + wagon.prezentujSie();
+            }
+
+            return result;
         }
     }
 }
