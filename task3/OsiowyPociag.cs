@@ -2,20 +2,20 @@
 
 namespace task3
 {
-    public class OsiowyPociag : IPociang
+    public class OsiowyPociag : IPociag
     {
         public OsiowyPociag()
         {
         }
 
-        public virtual void setLokomotywa(IOsiowaLokomotywa lokomotywa)
+        public override void setLokomotywa(ILokomotywa lokomotywa)
         {
-            base.setLokomotywa(lokomotywa);
+            this.lokomotywa = lokomotywa;
         }
 
-        public virtual void addWagon(IOsiowyWagon wagon)
+        public override void addWagon(IWagon wagon)
         {
-            base.addWagon(wagon);
+            this.wagony.Add(wagon);
         }
     }
 }

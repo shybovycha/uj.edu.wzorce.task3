@@ -3,20 +3,20 @@ using System.Collections.Generic;
 
 namespace task3
 {
-    public class Pociag : IPociang
+    public class Pociag : IPociag
     {
         public Pociag()
         {
         }
 
-        public virtual void setLokomotywa(ILokomotywa lokomotywa)
+        public override void setLokomotywa(ILokomotywa lokomotywa)
         {
-            base.setLokomotywa(lokomotywa);
+            this.lokomotywa = lokomotywa;
         }
 
-        public virtual void addWagon(IWagon wagon)
+        public override void addWagon(IWagon wagon)
         {
-            base.addWagon(wagon);
+            this.wagony.Add(wagon);
         }
     }
 }

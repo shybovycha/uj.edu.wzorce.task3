@@ -8,7 +8,7 @@ namespace task3
         {
         }
 
-        public virtual bool isTowarowy()
+        public override bool isTowarowy()
         {
             return true;
         }

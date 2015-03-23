@@ -48,11 +48,13 @@
     <Compile Include="OsobowyOsiowyWagon.cs" />
     <Compile Include="TowarowyOsiowyWagon.cs" />
     <Compile Include="Pociag.cs" />
-    <Compile Include="IPociang.cs" />
     <Compile Include="OsiowyPociag.cs" />
     <Compile Include="IPociagowaFabryka.cs" />
     <Compile Include="ZwyklaFabryka.cs" />
     <Compile Include="OsiowaFabryka.cs" />
+    <Compile Include="PociagBuilder.cs" />
+    <Compile Include="InputParser.cs" />
+    <Compile Include="IPociag.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
