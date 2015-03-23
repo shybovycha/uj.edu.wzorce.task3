@@ -11,7 +11,7 @@ namespace task3
             this.osi = Math.Max(2, this.dlugosc / 20);
         }
 
-        public String prezentujSie()
+        public override String prezentujSie()
         {
             return String.Format("{0} i mam {1} osi", base.prezentujSie(), this.osi);
         }

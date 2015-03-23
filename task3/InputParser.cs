@@ -12,29 +12,21 @@ namespace task3
         {
         }
 
-        public IWagon createWagon(String typStr, String dlugoscStr)
+        public IWagon createWagon(String typStr)
         {
-            int dlugosc = parseDlugosc(dlugoscStr);
             String typ = parseTypWagonu(typStr);
 
-            if (flOsi) {
-                this.fabric = new OsiowaFabryka();
-            } else {
-                this.fabric = new ZwyklaFabryka();
-            }
-
             if (typ == "Towarowy") {
-                return this.fabric.createTowarowyWagon(dlugosc);
+                return this.fabric.createTowarowyWagon();
             } else if (typ == "Osobowy") {
-                return this.fabric.createOsobowyWagon(dlugosc);
+                return this.fabric.createOsobowyWagon();
             }
 
-            return null;
+            throw new ArgumentException("Zły typ wagonu");
         }
 
-        public ILokomotywa createLokomotywa(String typStr, String dlugoscStr)
+        public ILokomotywa createLokomotywa(String typStr)
         {
-            int dlugosc = parseDlugosc(dlugoscStr);
             String typ = parseTypLokomotywy(typStr);
 
             if (flOsi) {
@@ -44,20 +36,20 @@ namespace task3
             }
 
             if (typ == "Elektryczna") {
-                return this.fabric.createElektrycznaLokomotywa(dlugosc);
+                return this.fabric.createElektrycznaLokomotywa();
             } else if (typ == "Spalinowa") {
-                return this.fabric.createSpalinowaLokomotywa(dlugosc);
+                return this.fabric.createSpalinowaLokomotywa();
             }
 
-            return null;
+            throw new ArgumentException("Zły typ lokomotywy");
         }
 
-        protected static int parseDlugosc(String s)
+        protected int parseDlugosc(String s)
         {
             return Int32.Parse(s);
         }
 
-        protected static String parseTypLokomotywy(String s)
+        protected String parseTypLokomotywy(String s)
         {
             Match match = Regex.Match(s, @"^(O)?\s*(E|S)$");
             String typ = "";
@@ -65,13 +57,13 @@ namespace task3
             this.flOsi = false;
 
             if (match.Success) {
-                if (match.Groups[1] == "O") {
+                if (match.Groups[1].Value == "O") {
                     this.flOsi = true;
                 }
 
-                if (match.Groups[2] == "E") {
+                if (match.Groups[2].Value == "E") {
                     typ = "Elektryczna";
-                } else if (match.Groups[2] == "S") {
+                } else if (match.Groups[2].Value == "S") {
                     typ = "Spalinowa";
                 } else {
                     typ = "Unknown";
@@ -81,21 +73,15 @@ namespace task3
             return typ;
         }
 
-        protected static String parseTypWagonu(String s)
+        protected String parseTypWagonu(String s)
         {
-            Match match = Regex.Match(s, @"^(O)?\s*(T|B)$");
+            Match match = Regex.Match(s, @"^(T|B)$");
             String typ = "";
 
-            this.flOsi = false;
-
             if (match.Success) {
-                if (match.Groups[1] == "O") {
-                    this.flOsi = true;
-                } 
-
-                if (match.Groups[2] == "T") {
+                if (match.Groups[1].Value == "T") {
                     typ = "Towarowy";
-                } else if (match.Groups[2] == "B") {
+                } else if (match.Groups[1].Value == "B") {
                     typ = "Osobowy";
                 } else {
                     typ = "Unknown";

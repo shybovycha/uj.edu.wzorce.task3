@@ -9,6 +9,11 @@ namespace task3
 
         protected List<IWagon> wagony;
 
+        public IPociag()
+        {
+            this.wagony = new List<IWagon>();
+        }
+
         public abstract void setLokomotywa(ILokomotywa lokomotywa);
 
         public ILokomotywa getLokomotywa()
@@ -30,7 +35,7 @@ namespace task3
             result += this.lokomotywa.prezentujSie();
 
             foreach (IWagon wagon in this.getWagony()) {
-                result += ";" + wagon.prezentujSie();
+                result += "\n" + wagon.prezentujSie();
             }
 
             return result;

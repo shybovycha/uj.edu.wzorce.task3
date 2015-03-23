@@ -13,7 +13,7 @@ namespace task3
             this.dlugosc = dlugosc;
         }
 
-        public String prezentujSie()
+        public virtual String prezentujSie()
         {
             return String.Format("Jestem {0} lokomotywą o długości {1}", this.type, this.dlugosc);
         }

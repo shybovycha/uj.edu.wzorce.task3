@@ -7,6 +7,11 @@ namespace task3
         public OsobowyOsiowyWagon(int dlugosc) : base("osobowy", dlugosc)
         {
         }
+
+        public override bool isOsobowy()
+        {
+            return true;
+        }
     }
 }
 

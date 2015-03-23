@@ -5,7 +5,7 @@ namespace task3
 {
     public class Pociag : IPociag
     {
-        public Pociag()
+        public Pociag() : base()
         {
         }
 

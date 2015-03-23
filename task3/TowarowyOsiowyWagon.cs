@@ -7,6 +7,11 @@ namespace task3
         public TowarowyOsiowyWagon(int dlugosc) : base("towarowy", dlugosc)
         {
         }
+
+        public override bool isTowarowy()
+        {
+            return true;
+        }
     }
 }
 

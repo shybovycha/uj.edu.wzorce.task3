@@ -8,7 +8,7 @@ namespace task3
         public static void Main(string[] args)
         {
 
-            String l1 = "", l2 = "";
+            String l1 = "";
             int liczbaWagonow = 0;
 
             InputParser parser = new InputParser();
@@ -17,31 +17,27 @@ namespace task3
 
             Console.WriteLine("Teraz będziemy budować pociąg!");
 
-            Console.WriteLine("Wprowadż jaką pociąg będzie miał lokomotywę (Osiową) [Elektryczną|Spalinową]:");
+            Console.Write("Wprowadż jaką pociąg będzie miał lokomotywę (Osiową) [Elektryczną|Spalinową]:");
             l1 = Console.ReadLine();
 
-            Console.WriteLine("Wprowadż długość lokomotywy:");
-            l2 = Console.ReadLine();
+            ILokomotywa lokomotywa = parser.createLokomotywa(l1);
+            builder.addLokomotywe(lokomotywa);
 
-            builder.addLokomotywe(parser.createLokomotywa(l1, l2));
-
-            Console.WriteLine("Wprowadż ile pociąg będzie miał wagonów:");
+            Console.Write("Wprowadż ile pociąg będzie miał wagonów:");
             l1 = Console.ReadLine();
             liczbaWagonow = Int32.Parse(l1);
 
             for (int i = 1; i <= liczbaWagonow; i++) {
-                Console.WriteLine(String.Format("#{0} / {1}. Wprowadż jaki to będzie wagon (Osiowy) [Towarowy|osoBowy]:", i, liczbaWagonow));
+                Console.Write(String.Format("#{0} / {1}. Wprowadż jaki to będzie wagon [Towarowy|osoBowy]:", i, liczbaWagonow));
                 l1 = Console.ReadLine();
 
-                Console.WriteLine("Wprowadż długość lokomotywy:");
-                l2 = Console.ReadLine();
-
-                builder.addWagon(parser.createWagon(l1, l2));
+                IWagon wagon = parser.createWagon(l1);
+                builder.addWagon(wagon);
             }
 
             pociag = builder.build();
 
-            pociag.prezentujSie();
+            Console.WriteLine(pociag.prezentujSie());
         }
     }
 }
