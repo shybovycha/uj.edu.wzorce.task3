@@ -1,0 +1,5 @@
+/home/shybovycha/projects/uniwersytet/wzorce/task3/task3/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/shybovycha/projects/uniwersytet/wzorce/task3/task3/bin/Debug/task3.exe.mdb
+/home/shybovycha/projects/uniwersytet/wzorce/task3/task3/bin/Debug/task3.exe
+/home/shybovycha/projects/uniwersytet/wzorce/task3/task3/obj/x86/Debug/task3.exe
+/home/shybovycha/projects/uniwersytet/wzorce/task3/task3/obj/x86/Debug/task3.exe.mdb
